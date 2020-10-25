@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    p #{post.title}
+    p #{post.body}
+    p #{post.author}
+    
+    hr
+    a.btn.btn-primary(href='/posts/'+post._id+'/edit/') Edit
+    a.btn.btn-danger.delete-post(href='#' data-id=post._id) Delete

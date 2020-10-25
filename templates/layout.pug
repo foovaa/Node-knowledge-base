@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.css")
+        link(rel="stylesheet", href="/css/style.css")
+        block tity
+    body
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample08' aria-controls='navbarsExample08' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarsExample08.collapse.navbar-collapse.justify-content-md-center
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href='/')
+                            | KB 
+                    li.nav-item
+                        a.nav-link(href='/posts/post/add/') Add
+                    li.nav-item
+                        a.nav-link(href='/users/') Users
+
+                    ul.nav.navbar-nav.navbar-right    
+                        if user
+                            li.nav-item
+                                a.nav-link(href='/users/user/logout/') Logout
+                        else
+                            li.nav-item
+                                a.nav-link(href='/users/user/register/') Register
+                            li.nav-item
+                                a.nav-link(href='/users/user/login/') Login
+    
+
+                    //- li.nav-item.dropdown
+                    //-     a#dropdown08.nav-link.dropdown-toggle(href='http://example.com' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+                    //-     .dropdown-menu(aria-labelledby='dropdown08')
+                    //-         a.dropdown-item(href='#') Action
+                    //-         a.dropdown-item(href='#') Another action
+                    //-         a.dropdown-item(href='#') Something else here
+
+        .container
+            br
+            != messages('message', locals)
+            br
+            if errors
+                each error, i in errors.errors
+                    div(class="alert alert-danger") #{error.msg}
+            
+            block content
+            br 
+            hr
+
+
+            footer
+            p Copyright &copy; 2020 
+        script(src="/bower_components/jquery/dist/jquery.js")
+        script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+        script(src="/js/main.js")

@@ -1,0 +1,19 @@
+extends ../layout
+
+block tity
+    #{title}
+
+
+block content
+    form(action="/users/user/login/", method="post")
+        input(type="hidden", name="_csrf", value="")
+        #form-group
+            label Username
+            input.form-control(name="username", type="text")
+
+        #form-group
+            label Password
+            input.form-control(name="password", min-length=8, type="password")
+
+        br
+        input.btn.btn-primary(type="submit", value="Submit")

@@ -1,0 +1,22 @@
+extends ../layout
+
+block tity
+    title #{title}
+
+
+block content
+
+    h1 #{title}
+
+    form(action="/posts/post/add/", method="post")
+        input(type="hidden", name="_csrf")
+        #form-group
+            label Title
+            input.form-control(name="title", type="text")
+
+        #form-group
+            label Body
+            textarea.form-control(name="body")
+
+        br
+        input.btn.btn-primary(type="submit", value="Submit")

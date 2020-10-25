@@ -1,0 +1,27 @@
+extends ../layout
+
+block tity
+    title #{title}
+
+
+block content
+    p #{title}
+    form(action="/users/user/register/", method="post")
+        input(type="hidden", name="_csrf")
+        #form-group
+            label Username
+            input.form-control(name="username",  type="text")
+
+        #form-group
+            label Email
+            input.form-control(name="email", type="email")
+
+        #form-group
+            label Password
+            input.form-control(name="password", minlength=8, type="password")
+
+        #form-group
+            label Confirm
+            input.form-control(name="password2", minlength=8, type="password")
+        br
+        input.btn.btn-primary(type="submit", value="Submit")

@@ -1,0 +1,25 @@
+extends ../layout
+
+block tity
+    title #{post.title}
+
+
+block content
+
+
+    form(action="/posts/"+post._id+"/edit/", method="post")
+        input(type="hidden", name="_csrf")
+        #form-group
+            label Title
+            input.form-control(name="title", required, type="text", value=post.title)
+
+        #form-group
+            label Body
+            textarea.form-control(name="body", required)= post.body
+
+        #form-group
+            label Author
+            input.form-control(name="author", required, value=post.author, type="text")
+
+        br
+        input.btn.btn-primary(type="submit", value="Submit")
